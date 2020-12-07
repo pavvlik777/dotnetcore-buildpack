@@ -69,7 +69,7 @@ export NUGET_PACKAGES="${CACHE_DIR}/nuget/cache"
 info "publish ${PROJECT_FILE} for ${BUILD_CONFIGURATION} on ${OUTPUT_DIR}"
 dotnet publish $PROJECT_FILE --output ${BUILD_DIR}/${OUTPUT_DIR} --configuration ${BUILD_CONFIGURATION} --runtime ubuntu.18.04-x64
 DIR_TO_CLEAN=$(dirname $(dirname ${PROJECT_FILE%.*}))
-info $DIR_TO_CLEAN
+rm -rf $DIR_TO_CLEAN/
 
 
 if [ -f ${BUILD_DIR}/Procfile ]; then
